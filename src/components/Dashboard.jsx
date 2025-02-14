@@ -32,11 +32,10 @@ class Dashboard extends Component {
     focused: null,
   };
 
-  // Instance method to update focused state
   selectPanel(id) {
-    this.setState({
-      focused: id,
-    });
+    this.setState(prevState => ({
+      focused: prevState.focused !== null ? null : id,
+    }));
   }
 
   render() {
@@ -55,10 +54,9 @@ class Dashboard extends Component {
     ).map((panel) => (
       <Panel
         key={panel.id}
-        id={panel.id}
         label={panel.label}
         value={panel.value}
-        onSelect={this.selectPanel} // pass the selectPanel action as prop
+        onSelect={() => this.selectPanel(panel.id)}
       />
     ));
 
