@@ -7,7 +7,7 @@ import {
   getTotalTopics,
   getUserWithMostUploads,
   getUserWithLeastUploads,
-} from "helpers/selectors";
+} from "../helpers/selectors";
 
 const data = [
   {
